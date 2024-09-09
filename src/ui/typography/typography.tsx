@@ -15,7 +15,6 @@ interface IPropsText {
 export const Typography = (props: IPropsText) => {
   return (
     <div
-    
       onClick={() => {
         if (props.onClick) props.onClick();
       }}
