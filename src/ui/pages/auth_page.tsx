@@ -4,13 +4,18 @@ import { Typography, StrokePanel } from "../typography/typography";
 
 interface AuthPageProps {
   bottomText: React.ReactNode;
-  bodyChild: React.ReactNode;
+  bodyChildLeftPage?: React.ReactNode;
+  bodyChildRightPage?: React.ReactNode;
   topChild: React.ReactNode;
-  activePage: string;
+  activePage: Pages;
+}
+export enum Pages {
+  Verification = "Verification",
+  Login = "Login",
 }
 
 export const AuthPage = (props: AuthPageProps) => {
-  const [activePage, setActivePage] = useState<string>(props.activePage);
+  const [activePage, setActivePage] = useState<Pages>(props.activePage);
   return (
     <div>
       <div>{props.topChild}</div>
@@ -24,12 +29,12 @@ export const AuthPage = (props: AuthPageProps) => {
         }}
       >
         <div
-          onClick={() => setActivePage("Login")}
+          onClick={() => setActivePage(Pages.Login)}
           style={{ width: "100%", marginLeft: 20 }}
         >
           <div style={{ display: "flex", alignItems: "center" }}>
             <Icon
-              color={activePage === "Login" ? "#5A0FC8" : "#3D3D3D"}
+              color={activePage ===  Pages.Login ? "#5A0FC8" : "#3D3D3D"}
               icon={"LoginOnIcon"}
             />
             <Typography
@@ -43,17 +48,17 @@ export const AuthPage = (props: AuthPageProps) => {
             style={{
               height: 2,
               width: "100%",
-              backgroundColor: activePage === "Login" ? "#5A0FC8" : undefined,
+              backgroundColor: activePage === Pages.Login ? "#5A0FC8" : undefined,
             }}
           ></div>
         </div>
         <div
-          onClick={() => setActivePage("Verification")}
+          onClick={() => setActivePage(Pages.Verification)}
           style={{ width: "100%", marginRight: 20 }}
         >
           <div style={{ display: "flex", alignItems: "center" }}>
             <Icon
-              color={activePage === "Verification" ? "#5A0FC8" : "#3D3D3D"}
+              color={activePage === Pages.Verification ? "#5A0FC8" : "#3D3D3D"}
               icon={"VerIcon"}
             />
             <Typography
@@ -68,12 +73,15 @@ export const AuthPage = (props: AuthPageProps) => {
               height: 2,
               width: "100%",
               backgroundColor:
-                activePage === "Verification" ? "#5A0FC8" : undefined,
+                activePage === Pages.Verification ? "#5A0FC8" : undefined,
             }}
           ></div>
         </div>
       </div>
-      <div>{props.bodyChild}</div>
+      <div>
+        {activePage === Pages.Verification  ? props.bodyChildLeftPage : undefined}
+        {activePage === Pages.Login  ? props.bodyChildRightPage : undefined}
+      </div>
       <div>{props.bottomText}</div>
     </div>
   );

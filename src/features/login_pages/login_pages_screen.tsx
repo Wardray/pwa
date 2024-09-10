@@ -5,7 +5,7 @@ import { StrokePanel, Typography } from "../../ui/typography/typography";
 import { Icon } from "../../ui/icon/icon";
 import { useNavigate } from "react-router-dom";
 import { LoginVerificationPath } from "../login_verification/login_verification_screen";
-import { AuthPage } from "../../ui/pages/auth_page";
+import { AuthPage, Pages } from "../../ui/pages/auth_page";
 
 export const LoginPagesPath = "/LoginPages";
 export const LoginPagesScreen = observer(() => {
@@ -30,7 +30,7 @@ export const LoginPagesScreen = observer(() => {
           </div>
         </>
       }
-      bodyChild={
+      bodyChildRightPage={
         <>
           <div
             style={{
@@ -58,6 +58,7 @@ export const LoginPagesScreen = observer(() => {
           </div>
         </>
       }
+      bodyChildLeftPage={<>VeREFICATION</>}
       topChild={
         <>
           <div>
@@ -86,7 +87,7 @@ export const LoginPagesScreen = observer(() => {
           <div style={{ height: 20 }} />
         </>
       }
-      activePage={"Login"}
+      activePage={Pages.Login}
     />
   );
   return (
