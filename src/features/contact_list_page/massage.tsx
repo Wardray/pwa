@@ -1,4 +1,4 @@
-import { StrokePanel, Typography } from "../../ui/typography/typography";
+import { StrokePanel, Typography } from "../../core/ui/typography/typography";
 
 interface IPropsMassage {
   textPadding?: number;

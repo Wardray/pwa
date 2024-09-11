@@ -1,11 +1,11 @@
 import { observer } from "mobx-react-lite";
-import { Button } from "../../ui/button/button";
-import { Input } from "../../ui/input/input";
-import { StrokePanel, Typography } from "../../ui/typography/typography";
-import { Icon } from "../../ui/icon/icon";
+import { Button } from "../../core/ui/button/button";
+import { Input } from "../../core/ui/input/input";
+import { StrokePanel, Typography } from "../../core/ui/typography/typography";
+import { Icon } from "../../core/ui/icon/icon";
 import { useNavigate } from "react-router-dom";
 import { LoginVerificationPath } from "../login_verification/login_verification_screen";
-import { AuthPage, Pages } from "../../ui/pages/auth_page";
+import { AuthPage, Pages } from "../../core/ui/pages/auth_page";
 
 export const LoginPagesPath = "/LoginPages";
 export const LoginPagesScreen = observer(() => {

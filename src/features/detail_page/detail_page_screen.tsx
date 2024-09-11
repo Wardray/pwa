@@ -1,9 +1,19 @@
 import { observer } from "mobx-react-lite";
-import { Icon } from "../../ui/icon/icon";
-import { Input } from "../../ui/input/input";
+import { Icon } from "../../core/ui/icon/icon";
+import { Input } from "../../core/ui/input/input";
+import { useEffect, useRef, useState } from "react";
 
 export const DetailPagePath = "/detailPage";
 export const DetailPageScreen = observer(() => {
+  const ref = useRef<HTMLDivElement>(null);
+  const [detailPageBackgroundHeight, setDetailPageBackgroundHeight] =
+    useState<string>("100%");
+  useEffect(() => {
+    const clientHeight = ref.current?.clientHeight;
+    if (clientHeight) {
+      setDetailPageBackgroundHeight(`${clientHeight}px`);
+    }
+  }, []);
   return (
     <div
       style={{
@@ -38,18 +48,19 @@ export const DetailPageScreen = observer(() => {
         }}
       >
         <div
+          ref={ref}
           style={{
-            marginTop: 60,
-            width: "95%",
-            height: 600,
+            width: "100%",
+            height: detailPageBackgroundHeight,
             backgroundColor: "red",
             overflow: "scroll",
+            borderRadius: "40px 40px 0px 0px",
           }}
         >
-          {[""].repeat(19).map((el) => (
+          {["213"].repeat(19).map((el) => (
             <div
               style={{ width: "100%", height: 50, backgroundColor: "orange" }}
-            ></div>
+            >{el}</div>
           ))}
         </div>
 

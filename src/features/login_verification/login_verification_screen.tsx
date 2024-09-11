@@ -1,8 +1,8 @@
 import { observer } from "mobx-react-lite";
-import { Button } from "../../ui/button/button";
-import { Input } from "../../ui/input/input";
-import { StrokePanel, Typography } from "../../ui/typography/typography";
-import { Icon } from "../../ui/icon/icon";
+import { Button } from "../../core/ui/button/button";
+import { Input } from "../../core/ui/input/input";
+import { StrokePanel, Typography } from "../../core/ui/typography/typography";
+import { Icon } from "../../core/ui/icon/icon";
 import { useNavigate } from "react-router-dom";
 import { SignInPagesPath } from "../signIn_pages/signIn_pages_screen";
 
