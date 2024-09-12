@@ -1,8 +1,8 @@
 import { observer } from "mobx-react-lite";
 import { Massage } from "./massage";
-import { StrokePanel, Typography } from "../../ui/typography/typography";
-import { Input } from "../../ui/input/input";
-import { Icon } from "../../ui/icon/icon";
+import { StrokePanel, Typography } from "../../core/ui/typography/typography";
+import { Input } from "../../core/ui/input/input";
+import { Icon } from "../../core/ui/icon/icon";
 import { useNavigate } from "react-router-dom";
 import { DetailPagePath } from "../detail_page/detail_page_screen";
 

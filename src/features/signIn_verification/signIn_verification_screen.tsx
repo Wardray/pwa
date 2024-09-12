@@ -1,9 +1,9 @@
 import { observer } from "mobx-react-lite";
 import { useNavigate } from "react-router-dom";
-import { Button } from "../../ui/button/button";
-import { Icon } from "../../ui/icon/icon";
-import { Input } from "../../ui/input/input";
-import { Typography, StrokePanel } from "../../ui/typography/typography";
+import { Button } from "../../core/ui/button/button";
+import { Icon } from "../../core/ui/icon/icon";
+import { Input } from "../../core/ui/input/input";
+import { Typography, StrokePanel } from "../../core/ui/typography/typography";
 import { ContactListPagePath } from "../contact_list_page/contact_list_page_screen";
 
 export const SignInVerificationPath = "/SignInVerification";
