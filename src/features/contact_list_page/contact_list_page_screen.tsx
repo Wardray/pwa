@@ -1,5 +1,5 @@
 import { observer } from "mobx-react-lite";
-import { Massage } from "./massage";
+import { Message } from "./message";
 import { StrokePanel, Typography } from "../../core/ui/typography/typography";
 import { Input } from "../../core/ui/input/input";
 import { Icon } from "../../core/ui/icon/icon";
@@ -19,15 +19,18 @@ export const ContactListPageScreen = observer(() => {
         alignItems: "center",
       }}
     >
-      <div>
+      <div style={{ width: "100%" }}>
         <div
           style={{
+            borderBottomLeftRadius: 40,
+            borderBottomRightRadius: 40,
             width: "100%",
             height: 155,
             backgroundColor: "#7B3FD3",
           }}
         >
           <Typography
+            style={{ marginLeft: 40 }}
             text={"Progressive Web App"}
             fontSize={24}
             strokePanel={StrokePanel.Regular}
@@ -35,11 +38,11 @@ export const ContactListPageScreen = observer(() => {
           />
           <div
             style={{
-              marginTop: 10,
+              marginTop: 20,
               backgroundColor: "white",
               width: 328,
               height: 56,
-              marginLeft: 10,
+              marginLeft: 40,
               marginRight: 10,
               display: "flex",
               flexDirection: "row",
@@ -53,9 +56,9 @@ export const ContactListPageScreen = observer(() => {
           </div>
         </div>
       </div>
-      <div style={{ height: "100%", width: "100%" }}>
+      <div style={{marginTop: 20, height: "100%", width: "100%" }}>
         {[""].repeat(100).map((el) => (
-          <Massage onClick={() => console.log(200)} />
+          <Message onClick={() => navigate("/detailPage")} />
         ))}
       </div>
     </div>

@@ -1,9 +1,11 @@
 import { relative } from "path";
 import { StrokePanel, Typography } from "../typography/typography";
+import { CSSProperties } from "react";
 
 interface IInputProps {
   label?: string;
   initialValue: string;
+  style?: CSSProperties;
 }
 export const Input = (props: IInputProps) => {
   return (

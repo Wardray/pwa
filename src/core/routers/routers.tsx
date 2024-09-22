@@ -15,10 +15,7 @@ import {
   LoginPagesPath,
   LoginPagesScreen,
 } from "../../features/login_pages/login_pages_screen";
-import {
-  LoginVerificationPath,
-  LoginVerificationScreen,
-} from "../../features/login_verification/login_verification_screen";
+
 import {
   SignInPagesPath,
   SignInPagesScreen,
@@ -47,10 +44,6 @@ export const router = createBrowserRouter([
   {
     path: LoginPagesPath,
     element: <LoginPagesScreen />,
-  },
-  {
-    path: LoginVerificationPath,
-    element: <LoginVerificationScreen />,
   },
   {
     path: SignInPagesPath,

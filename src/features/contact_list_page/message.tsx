@@ -1,16 +1,21 @@
 import { StrokePanel, Typography } from "../../core/ui/typography/typography";
 
-interface IPropsMassage {
+interface IPropsMessage {
   textPadding?: number;
   onClick?: Function;
   child?: React.ReactNode;
   icon?: React.ReactNode;
 }
-export const Massage = (props: IPropsMassage) => {
+export const Message = (props: IPropsMessage) => {
   return (
     <>
       <div
+        onClick={() =>
+          props.onClick === undefined ? undefined : props.onClick()
+        }
         style={{
+          
+          height: 97,
           marginLeft: 10,
           marginRight: 10,
           display: "flex",

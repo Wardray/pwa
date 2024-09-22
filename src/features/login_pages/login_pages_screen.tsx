@@ -4,17 +4,23 @@ import { Input } from "../../core/ui/input/input";
 import { StrokePanel, Typography } from "../../core/ui/typography/typography";
 import { Icon } from "../../core/ui/icon/icon";
 import { useNavigate } from "react-router-dom";
-import { LoginVerificationPath } from "../login_verification/login_verification_screen";
 import { AuthPage, Pages } from "../../core/ui/pages/auth_page";
+import { SignInPagesPath } from "../signIn_pages/signIn_pages_screen";
 
-export const LoginPagesPath = "/LoginPages";
+export const LoginPagesPath = "/loginPages";
 export const LoginPagesScreen = observer(() => {
   const navigate = useNavigate();
   return (
     <AuthPage
       bottomText={
         <>
-          <div style={{ display: "flex", justifyContent: "center" }}>
+          <div
+            style={{
+              marginTop: 160,
+              display: "flex",
+              justifyContent: "center",
+            }}
+          >
             <Typography
               text={"Don’t Have Account?"}
               fontSize={12}
@@ -34,6 +40,8 @@ export const LoginPagesScreen = observer(() => {
         <>
           <div
             style={{
+              marginLeft: 30,
+              marginRight: 30,
               marginTop: 40,
               display: "flex",
               border: "1px solid #3D3D3D",
@@ -46,9 +54,8 @@ export const LoginPagesScreen = observer(() => {
             <Icon icon={"PhoneIcon"} />
             <Input label={"Phone Number"} initialValue={"+43 123-456-7890"} />
           </div>
-          <div style={{ marginLeft: 136, marginTop: 50 }}>
+          <div style={{ marginLeft: 110, marginTop: 50 }}>
             <Button
-              onClick={() => navigate(LoginVerificationPath)}
               icon={<Icon icon={"NextIcon"} />}
               background={"#5A0FC8"}
               width={139}
@@ -58,8 +65,68 @@ export const LoginPagesScreen = observer(() => {
           </div>
         </>
       }
-      bodyChildLeftPage={<>VeREFICATION</>}
-      topChild={
+      bodyChildLeftPage={
+        <>
+          <div
+            style={{
+              marginLeft: 30,
+              marginRight: 30,
+              marginTop: 40,
+              display: "flex",
+              border: "1px solid #3D3D3D",
+              borderRadius: 6,
+              flexDirection: "row",
+              justifyContent: "flex-start",
+              alignItems: "center",
+            }}
+          >
+            <Icon icon={"PhoneIcon"} />
+            <Input
+              label={"Verification"}
+              initialValue={"Enter Verification Number..."}
+            />
+          </div>
+          <div style={{ marginLeft: 110, marginTop: 50 }}>
+            <Button
+              onClick={() => navigate(SignInPagesPath)}
+              icon={"LoginOnIcon"}
+              background={"#5A0FC8"}
+              width={139}
+              height={40}
+              text={"Login"}
+            />
+          </div>
+        </>
+      }
+      topChildLeft={
+        <>
+          <div>
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                width: "100%",
+              }}
+            >
+              <img
+                src={`${process.env.PUBLIC_URL}/rDwSixsoQ0Q.jpg`}
+                alt="PWA"
+                style={{ width: "100%" }}
+              />
+            </div>
+          </div>
+          <div style={{ height: 40 }} />
+          <Typography
+            style={{ paddingLeft: 30 }}
+            fontSize={24}
+            strokePanel={StrokePanel.UltraBold}
+            color={"black"}
+            text={"Login on your account"}
+          />
+          <div style={{ height: 20 }} />
+        </>
+      }
+      topChildRight={
         <>
           <div>
             <div
@@ -156,7 +223,6 @@ export const LoginPagesScreen = observer(() => {
         </div>
         <div style={{ marginLeft: 86, marginTop: 50 }}>
           <Button
-            onClick={() => navigate(LoginVerificationPath)}
             icon={"NextIcon"}
             background={"#5A0FC8"}
             width={139}

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { Icon } from "../icon/icon";
 import { Typography, StrokePanel } from "../typography/typography";
 
@@ -6,8 +6,11 @@ interface AuthPageProps {
   bottomText: React.ReactNode;
   bodyChildLeftPage?: React.ReactNode;
   bodyChildRightPage?: React.ReactNode;
-  topChild: React.ReactNode;
+  topChild?: React.ReactNode;
+  topChildLeft?: React.ReactNode;
+  topChildRight?: React.ReactNode;
   activePage: Pages;
+  style?: React.CSSProperties;
 }
 export enum Pages {
   Verification = "Verification",
@@ -18,9 +21,12 @@ export const AuthPage = (props: AuthPageProps) => {
   const [activePage, setActivePage] = useState<Pages>(props.activePage);
   return (
     <div>
-      <div>{props.topChild}</div>
+      <div >
+        {activePage === Pages.Login ? props.topChildLeft : props.topChildRight}
+      </div>
       <div
         style={{
+         
           paddingLeft: 5,
           paddingRight: 5,
           display: "flex",
@@ -34,7 +40,7 @@ export const AuthPage = (props: AuthPageProps) => {
         >
           <div style={{ display: "flex", alignItems: "center" }}>
             <Icon
-              color={activePage ===  Pages.Login ? "#5A0FC8" : "#3D3D3D"}
+              color={activePage === Pages.Login ? "#5A0FC8" : "#3D3D3D"}
               icon={"LoginOnIcon"}
             />
             <Typography
@@ -48,7 +54,8 @@ export const AuthPage = (props: AuthPageProps) => {
             style={{
               height: 2,
               width: "100%",
-              backgroundColor: activePage === Pages.Login ? "#5A0FC8" : undefined,
+              backgroundColor:
+                activePage === Pages.Login ? "#5A0FC8" : undefined,
             }}
           ></div>
         </div>
@@ -56,7 +63,7 @@ export const AuthPage = (props: AuthPageProps) => {
           onClick={() => setActivePage(Pages.Verification)}
           style={{ width: "100%", marginRight: 20 }}
         >
-          <div style={{ display: "flex", alignItems: "center" }}>
+          <div style={{ display: "flex", alignItems: "center", }}>
             <Icon
               color={activePage === Pages.Verification ? "#5A0FC8" : "#3D3D3D"}
               icon={"VerIcon"}
@@ -70,6 +77,7 @@ export const AuthPage = (props: AuthPageProps) => {
           </div>
           <div
             style={{
+              
               height: 2,
               width: "100%",
               backgroundColor:
@@ -78,9 +86,11 @@ export const AuthPage = (props: AuthPageProps) => {
           ></div>
         </div>
       </div>
-      <div>
-        {activePage === Pages.Verification  ? props.bodyChildLeftPage : undefined}
-        {activePage === Pages.Login  ? props.bodyChildRightPage : undefined}
+      <div style={{marginLeft: 30, marginRight: 30}}>
+        {activePage === Pages.Verification
+          ? props.bodyChildRightPage
+          : undefined}
+        {activePage === Pages.Login ? props.bodyChildLeftPage : undefined}
       </div>
       <div>{props.bottomText}</div>
     </div>

@@ -12,29 +12,99 @@ interface IconProps {
 }
 const getIcon = (icon: string, color?: string) => {
   switch (icon) {
-    case "PlaneIcon":
+    case "BellIcon":
       return (
         <svg
-          width="46"
-          height="46"
-          viewBox="0 0 46 46"
+          width="24"
+          height="26"
+          viewBox="0 0 24 26"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
-            d="M33 13L19.25 26.75"
-            stroke="#F2F2F2"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            d="M12.018 25.018C10.6912 25.0116 9.6155 23.9411 9.6024 22.6144H14.4096C14.4125 22.9357 14.3517 23.2543 14.2305 23.5519C13.9151 24.2752 13.2711 24.8028 12.5 24.97H12.4939H12.4783H12.4663H12.4531H12.4447C12.3042 24.9991 12.1614 25.0152 12.018 25.018ZM21.6325 21.4126H2.40361V19.009L4.80721 17.8072V11.1973C4.7439 9.50172 5.12682 7.81921 5.91768 6.318C6.70491 4.92572 8.05052 3.93708 9.61442 3.60192V0.981995H14.4216V3.60192C17.5211 4.33983 19.2288 7.03668 19.2288 11.1973V17.8072L21.6325 19.009V21.4126ZM24 10.5964H21.5964C21.4845 7.48843 19.9904 4.59282 17.5223 2.70057L19.2288 0.981995C20.6663 2.10025 21.8277 3.53355 22.6239 5.17148C23.4472 6.86726 23.9154 8.71328 24 10.5964ZM2.40361 10.5964H0C0.0845588 8.71328 0.552805 6.86725 1.37606 5.17148C2.17221 3.53355 3.33374 2.10025 4.77116 0.981995L6.47772 2.70057C4.00935 4.59259 2.5152 7.48834 2.40361 10.5964Z"
+            fill="white"
           />
+        </svg>
+      );
+    case "3DotsIcon":
+      return (
+        <svg
+          width="4"
+          height="16"
+          viewBox="0 0 4 16"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
           <path
-            d="M33 13L24.25 38L19.25 26.75L8 21.75L33 13Z"
-            stroke="#F2F2F2"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            fillRule="evenodd"
+            clipRule="evenodd"
+            d="M2 4C3.1 4 4 3.1 4 2C4 0.9 3.1 0 2 0C0.9 0 0 0.9 0 2C0 3.1 0.9 4 2 4ZM2 6C0.9 6 0 6.9 0 8C0 9.1 0.9 10 2 10C3.1 10 4 9.1 4 8C4 6.9 3.1 6 2 6ZM0 14C0 12.9 0.9 12 2 12C3.1 12 4 12.9 4 14C4 15.1 3.1 16 2 16C0.9 16 0 15.1 0 14Z"
+            fill="white"
           />
+        </svg>
+      );
+    case "PlusIcon":
+      return (
+        <svg
+          width="12"
+          height="12"
+          viewBox="0 0 12 12"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M12 6.75H6.75V12H5.25V6.75H0V5.25H5.25V0H6.75V5.25H12V6.75Z"
+            fill="#5A0FC8"
+          />
+        </svg>
+      );
+    case "BackIcon":
+      return (
+        <svg
+          width="16"
+          height="16"
+          viewBox="0 0 16 16"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M16 7H3.83L9.42 1.41L8 0L0 8L8 16L9.41 14.59L3.83 9H16V7Z"
+            fill="#F2F2F2"
+          />
+        </svg>
+      );
+    case "PlaneIcon":
+      return (
+        <svg
+          width="48"
+          height="48"
+          viewBox="0 0 48 48"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <g clipPath="url(#clip0_30_168)">
+            <rect x="1" y="1" width="46" height="46" rx="23" fill="#5A0FC8" />
+            <path
+              d="M34 14L20.25 27.75"
+              stroke="#F2F2F2"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+            <path
+              d="M34 14L25.25 39L20.25 27.75L9 22.75L34 14Z"
+              stroke="#F2F2F2"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </g>
+          <defs>
+            <clipPath id="clip0_30_168">
+              <rect x="1" y="1" width="46" height="46" rx="23" fill="white" />
+            </clipPath>
+          </defs>
         </svg>
       );
     case "SmileFaceIcon":
@@ -74,8 +144,8 @@ const getIcon = (icon: string, color?: string) => {
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
-            fill-rule="evenodd"
-            clip-rule="evenodd"
+            fillRule="evenodd"
+            clipRule="evenodd"
             d="M11.76 10.77L17.49 16.5L16 17.99L10.27 12.26C9.2 13.03 7.91 13.5 6.5 13.5C2.91 13.5 0 10.59 0 7C0 3.41 2.91 0.5 6.5 0.5C10.09 0.5 13 3.41 13 7C13 8.41 12.53 9.7 11.76 10.77ZM6.5 2.5C4.01 2.5 2 4.51 2 7C2 9.49 4.01 11.5 6.5 11.5C8.99 11.5 11 9.49 11 7C11 4.51 8.99 2.5 6.5 2.5Z"
             fill="#3D3D3D"
           />
@@ -101,9 +171,9 @@ const getIcon = (icon: string, color?: string) => {
           <path
             d="M6.92505 12.3877L9.78502 14.5326L15.505 8.81269"
             stroke="white"
-            stroke-width="1.93048"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeWidth="1.93048"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           />
         </svg>
       );
@@ -146,16 +216,16 @@ const getIcon = (icon: string, color?: string) => {
           <path
             d="M2.75 3.75V14.25L8.75 9L2.75 3.75Z"
             stroke="white"
-            stroke-width="1.58052"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeWidth="1.58052"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           />
           <path
             d="M11 3.75V14.25L17 9L11 3.75Z"
             stroke="white"
-            stroke-width="1.58052"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeWidth="1.58052"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           />
         </svg>
       );
@@ -168,7 +238,7 @@ const getIcon = (icon: string, color?: string) => {
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
-          <g clip-path="url(#clip0_19_682)">
+          <g clipPath="url(#clip0_19_682)">
             <path
               d="M27.4282 10.0783L27.3951 10.0576L23.2186 8L18.7107 14.0105L20.7847 16.776C20.7226 17.8189 20.2803 18.8029 19.5416 19.5416C18.8028 20.2804 17.8188 20.7227 16.7759 20.7847L14.0105 18.7107L8 23.2185L10.0405 27.3602L10.0577 27.3951L10.0784 27.4281C10.1872 27.6036 10.3392 27.7482 10.5198 27.8483C10.7005 27.9484 10.9037 28.0006 11.1102 28H12.1879C14.2644 28 16.3205 27.591 18.2389 26.7964C20.1573 26.0017 21.9005 24.837 23.3687 23.3687C24.837 21.9004 26.0017 20.1573 26.7964 18.2389C27.591 16.3205 28 14.2643 28 12.1878V11.1101C28.0007 10.9036 27.9485 10.7004 27.8484 10.5198C27.7483 10.3391 27.6036 10.1872 27.4282 10.0783ZM26.4566 12.1878C26.4566 20.0556 20.0556 26.4566 12.1879 26.4566H11.3158L9.95059 23.685L14.0107 20.6399L16.2712 22.3352H16.5284C18.0681 22.3335 19.5441 21.7211 20.6328 20.6325C21.7215 19.5438 22.3338 18.0677 22.3356 16.5281V16.2709L20.6403 14.0105L23.685 9.95054L26.4566 11.316V12.1878Z"
               fill="#3D3D3D"
@@ -216,9 +286,9 @@ const getIcon = (icon: string, color?: string) => {
           <path
             d="M6.92506 12.3877L9.78503 14.5326L15.505 8.81269"
             stroke="white"
-            stroke-width="1.93048"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeWidth="1.93048"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           />
         </svg>
       );
