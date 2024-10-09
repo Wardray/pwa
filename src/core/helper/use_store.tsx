@@ -2,11 +2,14 @@ import { ClassConstructor } from "class-transformer";
 import React from "react";
 import { NavigateFunction, useNavigate } from "react-router-dom";
 
-// export interface LifeCycleStore {
-// }
 export class LifeCycleStore {
-  init?(navigate?: NavigateFunction | undefined): void;
+  navigate!: NavigateFunction;
+  init = (navigate: NavigateFunction) => {
+    this.navigate = navigate;
+    this.initDependency?.();
+  };
   dispose?: () => void;
+  initDependency?(): any;
 }
 export const useStore = <S extends LifeCycleStore>(
   storeConstructor: ClassConstructor<S>

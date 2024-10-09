@@ -23,6 +23,7 @@
     "react-scripts": "5.0.1",
     "reflect-metadata": "^0.2.2",
     "typescript": "^5.0.2",
+    "mobx-store-inheritance": "^1.0.6",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

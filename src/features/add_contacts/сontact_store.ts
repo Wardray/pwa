@@ -1,20 +1,17 @@
-import { makeAutoObservable } from "mobx";
+import makeAutoObservable from "mobx-store-inheritance";
 import { AddContactsHttpRepository } from "./add_contacts_http_repository";
 import { LifeCycleStore } from "../../core/helper/use_store";
-import { NavigateFunction } from "react-router-dom";
 
-export class ContactStore implements LifeCycleStore {
+export class ContactStore extends LifeCycleStore {
   addContactsHttpRepository = new AddContactsHttpRepository();
   contacts: string[] = [];
   users: string[] = [];
   loading = true;
-  navigate?: NavigateFunction;
   constructor() {
+    super();
     makeAutoObservable(this);
   }
-
-  init = async (navigate: NavigateFunction | undefined) => {
-    this.navigate = navigate;
+  initDependency = async () => {
     (await this.addContactsHttpRepository.getContacts()).map((el) => {
       this.contacts = el;
     });
@@ -25,6 +22,6 @@ export class ContactStore implements LifeCycleStore {
   };
   async addContact(el: string) {
     await this.addContactsHttpRepository.saveContact(el);
-    this.init(this.navigate);
+    this.initDependency();
   }
 }
