@@ -6,10 +6,13 @@ import { Icon } from "../../core/ui/icon/icon";
 import { useNavigate } from "react-router-dom";
 import { AuthPage, Pages } from "../../core/ui/pages/auth_page";
 import { SignInPagesPath } from "../signIn_pages/signIn_pages_screen";
+import { LoginStore } from "./login_store";
+import { useStore } from "../../core/helper/use_store";
 
 export const LoginPagesPath = "/loginPages";
 export const LoginPagesScreen = observer(() => {
   const navigate = useNavigate();
+  const store = useStore(LoginStore);
   return (
     <AuthPage
       bottomText={
@@ -36,35 +39,6 @@ export const LoginPagesScreen = observer(() => {
           </div>
         </>
       }
-      bodyChildRightPage={
-        <>
-          <div
-            style={{
-              marginLeft: 30,
-              marginRight: 30,
-              marginTop: 40,
-              display: "flex",
-              border: "1px solid #3D3D3D",
-              borderRadius: 6,
-              flexDirection: "row",
-              justifyContent: "flex-start",
-              alignItems: "center",
-            }}
-          >
-            <Icon icon={"PhoneIcon"} />
-            <Input label={"Phone Number"} initialValue={"+43 123-456-7890"} />
-          </div>
-          <div style={{ marginLeft: 110, marginTop: 50 }}>
-            <Button
-              icon={<Icon icon={"NextIcon"} />}
-              background={"#5A0FC8"}
-              width={139}
-              height={40}
-              text={"Next Step"}
-            />
-          </div>
-        </>
-      }
       bodyChildLeftPage={
         <>
           <div
@@ -82,13 +56,88 @@ export const LoginPagesScreen = observer(() => {
           >
             <Icon icon={"PhoneIcon"} />
             <Input
-              label={"Verification"}
-              initialValue={"Enter Verification Number..."}
+              onChange={(text) => (store.userModel.username = text)}
+              label={"Login"}
+              initialValue={"..."}
+            />
+          </div>
+          <div
+            style={{
+              marginLeft: 30,
+              marginRight: 30,
+              marginTop: 40,
+              display: "flex",
+              border: "1px solid #3D3D3D",
+              borderRadius: 6,
+              flexDirection: "row",
+              justifyContent: "flex-start",
+              alignItems: "center",
+            }}
+          >
+            <Icon icon={"PhoneIcon"} />
+            <Input
+              onChange={(text) => (store.userModel.password = text)}
+              label={"Password"}
+              initialValue={"..."}
             />
           </div>
           <div style={{ marginLeft: 110, marginTop: 50 }}>
             <Button
-              onClick={() => navigate(SignInPagesPath)}
+              onClick={() => store.login()}
+              icon={<Icon icon={"NextIcon"} />}
+              background={"#5A0FC8"}
+              width={139}
+              height={40}
+              text={"Login"}
+            />
+          </div>
+        </>
+      }
+      bodyChildRightPage={
+        <>
+          <div
+            style={{
+              marginLeft: 30,
+              marginRight: 30,
+              marginTop: 40,
+              display: "flex",
+              border: "1px solid #3D3D3D",
+              borderRadius: 6,
+              flexDirection: "row",
+              justifyContent: "flex-start",
+              alignItems: "center",
+            }}
+          >
+            <Icon icon={"PhoneIcon"} />
+            <Input
+              onChange={(text) => (store.userModel.username = text)}
+              label={"Login"}
+              initialValue={"..."}
+            />
+          </div>
+          <div
+            style={{
+              marginLeft: 30,
+              marginRight: 30,
+              marginTop: 40,
+              display: "flex",
+              border: "1px solid #3D3D3D",
+              borderRadius: 6,
+              flexDirection: "row",
+              justifyContent: "flex-start",
+              alignItems: "center",
+            }}
+          >
+            <Icon icon={"PhoneIcon"} />
+            <Input
+              onChange={(text) => (store.userModel.password = text)}
+              label={"Pass"}
+              initialValue={"..."}
+            />
+          </div>
+          <div style={{ marginLeft: 110, marginTop: 50 }}>
+            <Button
+              onClick={() => store.register()}
               icon={"LoginOnIcon"}
               background={"#5A0FC8"}
               width={139}

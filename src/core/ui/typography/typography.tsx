@@ -10,11 +10,18 @@ interface IPropsText {
   style?: React.CSSProperties;
   contentEditable?: boolean;
   onClick?: Function;
+  onChange?: (text: string) => void;
 }
 
 export const Typography = (props: IPropsText) => {
   return (
     <div
+      onInput={(event) => {
+        if (props.onChange) {
+          // @ts-expect-error
+          props.onChange(event.target.innerText);
+        }
+      }}
       onClick={() => {
         if (props.onClick) props.onClick();
       }}

@@ -6,6 +6,7 @@ interface IInputProps {
   label?: string;
   initialValue: string;
   style?: CSSProperties;
+  onChange?: (text: string) => void;
 }
 export const Input = (props: IInputProps) => {
   return (
@@ -27,6 +28,7 @@ export const Input = (props: IInputProps) => {
         />
       </div>
       <Typography
+        onChange={(text) => props?.onChange?.(text)}
         contentEditable={true}
         fontSize={14}
         strokePanel={StrokePanel.Regular}

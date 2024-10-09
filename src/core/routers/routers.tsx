@@ -33,6 +33,7 @@ export const router = createBrowserRouter([
     path: AddContactsScreenPath,
     element: <AddContactsScreen />,
   },
+  
   {
     path: ContactListPagePath,
     element: <ContactListPageScreen />,
@@ -43,6 +44,10 @@ export const router = createBrowserRouter([
   },
   {
     path: LoginPagesPath,
+    element: <LoginPagesScreen />,
+  },
+  {
+    path: "*",
     element: <LoginPagesScreen />,
   },
   {

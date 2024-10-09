@@ -5,9 +5,12 @@ import { Input } from "../../core/ui/input/input";
 import { Button } from "../../core/ui/button/button";
 import { Message } from "../contact_list_page/message";
 import { Contact } from "./contact";
+import { ContactStore } from "./сontact_store";
+import { useStore } from "../../core/helper/use_store";
 
 export const AddContactsScreenPath = "/addContacts";
 export const AddContactsScreen = observer(() => {
+  const store = useStore(ContactStore);
   return (
     <div
       style={{
@@ -93,9 +96,13 @@ export const AddContactsScreen = observer(() => {
         />
         <div>
           <div style={{ height: "100%", width: "100%" }}>
-            {[""].repeat(4).map((el) => (
-              <Contact onClick={() => console.log(200)} />
-            ))}
+            {store.users.map((el) =>
+              store.contacts.includes(el) ? (
+                <></>
+              ) : (
+                <Contact onClick={() => store.addContact(el)} />
+              )
+            )}
           </div>
         </div>
       </div>
