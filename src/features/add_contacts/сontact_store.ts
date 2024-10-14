@@ -12,9 +12,7 @@ export class ContactStore extends LifeCycleStore {
     makeAutoObservable(this);
   }
   initDependency = async () => {
-    (await this.addContactsHttpRepository.getContacts()).map((el) => {
-      this.contacts = el;
-    });
+    await this.mapOk(this.addContactsHttpRepository.getContacts(), "contacts");
     (await this.addContactsHttpRepository.getUsers()).map((el) => {
       this.users = Object.keys(el);
     });

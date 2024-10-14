@@ -1,7 +1,7 @@
 import { ClassConstructor } from "class-transformer";
 import React from "react";
 import { NavigateFunction, useNavigate } from "react-router-dom";
-
+import { Result } from "./result";
 export class LifeCycleStore {
   navigate!: NavigateFunction;
   init = (navigate: NavigateFunction) => {
@@ -10,6 +10,10 @@ export class LifeCycleStore {
   };
   dispose?: () => void;
   initDependency?(): any;
+  mapOk = async (query: Promise<Result<any, any>>, property: string) => {
+    //@ts-expect-error
+    (await query).map((el) => (this[property] = el));
+  };
 }
 export const useStore = <S extends LifeCycleStore>(
   storeConstructor: ClassConstructor<S>
@@ -24,3 +28,10 @@ export const useStore = <S extends LifeCycleStore>(
   }, []);
   return store;
 };
+export abstract class LifeCycleStoreFormState<V> extends LifeCycleStore {
+  abstract viewModel: V;
+  updateForm = (model: Partial<V>) => {
+    //@ts-expect-error
+    this.viewModel = Object.assign(this.viewModel, model);
+  };
+}

@@ -33,13 +33,13 @@ export const router = createBrowserRouter([
     path: AddContactsScreenPath,
     element: <AddContactsScreen />,
   },
-  
+
   {
     path: ContactListPagePath,
     element: <ContactListPageScreen />,
   },
   {
-    path: DetailPagePath,
+    path: DetailPagePath + '/:id',
     element: <DetailPageScreen />,
   },
   {

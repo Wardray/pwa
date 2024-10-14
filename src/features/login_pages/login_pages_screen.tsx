@@ -56,7 +56,7 @@ export const LoginPagesScreen = observer(() => {
           >
             <Icon icon={"PhoneIcon"} />
             <Input
-              onChange={(text) => (store.userModel.username = text)}
+              onChange={(text) => store.updateForm({ username: text })}
               label={"Login"}
               initialValue={"..."}
             />
@@ -76,7 +76,7 @@ export const LoginPagesScreen = observer(() => {
           >
             <Icon icon={"PhoneIcon"} />
             <Input
-              onChange={(text) => (store.userModel.password = text)}
+              onChange={(text) => store.updateForm({ password: text })}
               label={"Password"}
               initialValue={"..."}
             />
@@ -110,7 +110,7 @@ export const LoginPagesScreen = observer(() => {
           >
             <Icon icon={"PhoneIcon"} />
             <Input
-              onChange={(text) => (store.userModel.username = text)}
+              onChange={(text) => store.updateForm({ username: text })}
               label={"Login"}
               initialValue={"..."}
             />
@@ -130,7 +130,7 @@ export const LoginPagesScreen = observer(() => {
           >
             <Icon icon={"PhoneIcon"} />
             <Input
-              onChange={(text) => (store.userModel.password = text)}
+              onChange={(text) => store.updateForm({ password: text })}
               label={"Pass"}
               initialValue={"..."}
             />

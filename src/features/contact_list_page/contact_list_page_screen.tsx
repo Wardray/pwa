@@ -5,9 +5,11 @@ import { Input } from "../../core/ui/input/input";
 import { Icon } from "../../core/ui/icon/icon";
 import { useNavigate } from "react-router-dom";
 import { DetailPagePath } from "../detail_page/detail_page_screen";
-
+import { useStore } from "../../core/helper/use_store";
+import { ContactListStore } from "./contact_list_store";
 export const ContactListPagePath = "/contactList";
 export const ContactListPageScreen = observer(() => {
+  const store = useStore(ContactListStore);
   const navigate = useNavigate();
   return (
     <div
@@ -56,9 +58,9 @@ export const ContactListPageScreen = observer(() => {
           </div>
         </div>
       </div>
-      <div style={{marginTop: 20, height: "100%", width: "100%" }}>
-        {[""].repeat(100).map((el) => (
-          <Message onClick={() => navigate("/detailPage")} />
+      <div style={{ marginTop: 20, height: "100%", width: "100%" }}>
+        {store.chats.map((el) => (
+          <Message onClick={() => navigate(DetailPagePath + "/" + el)} />
         ))}
       </div>
     </div>

@@ -14,13 +14,24 @@ export class MessageStore extends LifeCycleStore {
   messageHttpRepository = new MessageHttpRepository();
   messages: IMessage[] = [];
   input: string = "";
-  id?: number;
+  id?: string;
+
   constructor() {
     super();
     makeAutoObservable(this);
   }
-  initParam(id: number) {
-    this.id = id;
+  async sendMessage() {
+    await this.messageHttpRepository.sendMessage({
+      date: Date.now(),
+      from: this.id ?? "",
+      message: this.input,
+      toWhom: localStorage.getItem("authUserName") ?? "",
+    });
+    this.initParam(this.id!);
   }
-   
+
+  async initParam(id: string) {
+    this.id = id;
+    await this.mapOk(this.messageHttpRepository.getMessages(id), "messages");
+  }
 }

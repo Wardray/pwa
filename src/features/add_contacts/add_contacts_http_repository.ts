@@ -7,8 +7,5 @@ export class AddContactsHttpRepository extends HttpRepository {
       whoAdded: addsId,
       whoAdds: localStorage.getItem("authUserName"),
     });
-  getContacts = () =>
-    this.jsonRequest<[string]>("/user/get/contacts", "POST", {
-      id: localStorage.getItem("authUserName"),
-    });
+  
 }
